@@ -1,7 +1,7 @@
 // NPM Modules
 import { Box, Grid, Link, Typography } from '@mui/material';
 import axios, { AxiosResponse } from 'axios';
-import { BreadcrumbJsonLd, NextSeo } from 'next-seo';
+import { NextSeo } from 'next-seo';
 import React from 'react';
 
 // Custom Modules
@@ -48,20 +48,6 @@ export default class BusinessArchivePage extends React.Component<PageProps> {
           title='Business Listings | Veteran Database'
           canonical='https://veterandb.com/business/'
           openGraph={{ url: 'https://veterandb.com/business/' }}
-        />
-        <BreadcrumbJsonLd
-          itemListElements={[
-            {
-              position: 1,
-              name: 'Home',
-              item: 'https://veterandb.com/'
-            },
-            {
-              position: 2,
-              name: 'Business',
-              item: 'https://veterandb.com/business/'
-            }
-          ]}
         />
         <Box
           component={'main'}
