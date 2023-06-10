@@ -6,96 +6,117 @@ import Script from 'next/script';
 
 // Custom Modules
 import customTheme from '@/config/mui.theme';
-import {
-  BreadcrumbJsonLd,
-  ImageJsonLd,
-  LogoJsonLd,
-  OrganizationJsonLd,
-  SocialProfileJsonLd,
-  WebPageJsonLd
-} from 'next-seo';
 
 export default class Document extends React.Component {
+  private jsonSchema() {
+    return {
+      __html: `{
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebPage",
+            "@id": "https://veterandb.com/",
+            "url": "https://veterandb.com/",
+            "name": "The Last Veteran LZ | Veteran Database",
+            "isPartOf": {
+              "@id": "https://veterandb.com/#website"
+            },
+            "about": {
+              "@id": "https://veterandb.com/#organization"
+            },
+            "primaryImageOfPage": {
+              "@id": "https://veterandb.com/#primaryimage"
+            },
+            "image": {
+              "@id": "https://veterandb.com/#primaryimage"
+            },
+            "thumbnailUrl": "https://uploads.veterandb.com/military/default-cover.jpg",
+            "datePublished": "2020-12-09T05:32:57+00:00",
+            "dateModified": "2023-05-09T22:28:07+00:00",
+            "description": "The last LZ you'll ever need. The original idea for VeteranDB was to take the IMDB concept, and apply it to Veteran Business and Entertainment. It became very clear, during our first round of feedback, that this would be so much more.",
+            "breadcrumb": {
+              "@id": "https://veterandb.com/#breadcrumb"
+            },
+            "inLanguage": "en-US",
+            "potentialAction": [
+              {
+                "@type": "ReadAction",
+                "target": [
+                  "https://veterandb.com/"
+                ]
+              }
+            ]
+          },
+          {
+            "@type": "ImageObject",
+            "inLanguage": "en-US",
+            "@id": "https://veterandb.com/#primaryimage",
+            "url": "https://uploads.veterandb.com/military/default-cover.jpg",
+            "contentUrl": "https://uploads.veterandb.com/military/default-cover.jpg",
+            "width": 1168,
+            "height": 1200
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://veterandb.com/#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home"
+              }
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://veterandb.com/#website",
+            "url": "https://veterandb.com/",
+            "name": "Website",
+            "description": "The Last LZ You'll Ever Need",
+            "publisher": {
+              "@id": "https://veterandb.com/#organization"
+            },
+            "potentialAction": [
+              {
+                "@type": "SearchAction",
+                "target": {
+                  "@type": "EntryPoint",
+                  "urlTemplate": "https://veterandb.com/?s={search_term_string}"
+                },
+                "query-input": "required name=search_term_string"
+              }
+            ],
+            "inLanguage": "en-US"
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://veterandb.com/#organization",
+            "name": "Veteran Database",
+            "url": "https://veterandb.com/",
+            "logo": {
+              "@type": "ImageObject",
+              "inLanguage": "en-US",
+              "@id": "https://veterandb.com/#/schema/logo/image/",
+              "url": "https://uploads.veterandb.com/military/logo-green.png",
+              "contentUrl": "https://uploads.veterandb.com/military/logo-green.png",
+              "width": 931,
+              "height": 100,
+              "caption": "Veteran Database"
+            },
+            "image": {
+              "@id": "https://veterandb.com/#/schema/logo/image/"
+            }
+          }
+        ]
+      }`
+    };
+  }
+
   render() {
     return (
       <Html lang='en'>
-        <BreadcrumbJsonLd
-          itemListElements={[
-            {
-              position: 1,
-              name: 'Home',
-              item: 'https://veterandb.com'
-            }
-          ]}
-        />
-        <ImageJsonLd
-          images={[
-            {
-              contentUrl: 'https://uploads.veterandb.com/military/logo-green.png',
-              creator: {
-                '@type': 'Organisation',
-                name: 'Veteran Database'
-              },
-              creditText: 'Veteran Database',
-              copyrightNotice: '© Veteran Database',
-              license: 'https://veterandb.com/legal/terms-conditions'
-            }
-          ]}
-        />
-        <LogoJsonLd logo='https://uploads.veterandb.com/military/logo-green.png' url='https://veterandb.com' />
-
-        <OrganizationJsonLd
-          type='Organization'
-          id='https://veterandb.com/#organization'
-          logo='https://uploads.veterandb.com/military/logo-green.png'
-          legalName='Veteran Database'
-          name='Veteran Database'
-          address={{
-            streetAddress: '2436 Saddleridge Dr.',
-            addressLocality: 'Midway Park',
-            addressRegion: 'NC',
-            postalCode: '28544',
-            addressCountry: 'US'
-          }}
-          contactPoint={[
-            {
-              telephone: '+1-704-750-0963',
-              contactType: 'Customer Service',
-              email: 'hello@veterandb.com',
-              availableLanguage: 'English'
-            }
-          ]}
-          sameAs={[
-            'https://api.veterandb.com/',
-            'https://app.veterandb.com/',
-            'https://roadmap.veterandb.com/',
-            'https://status.veterandb.com/',
-            'https://support.veterandb.com/'
-          ]}
-          url='https://veterandb.com/'
-        />
-        <SocialProfileJsonLd
-          type='Organization'
-          name='Veteran Database'
-          url='https://veterandb.com'
-          sameAs={[
-            'https://www.facebook.com/veterandb',
-            'https://www.instagram.com/veterandatabase/',
-            'https://www.linkedin.com/company/veterandb/',
-            'https://twitter.com/VeteranDatabase',
-            'https://www.youtube.com/@VeteranDB'
-          ]}
-        />
-        <WebPageJsonLd
-          id='https://veterandb.com/#website'
-          description='Veteran business and entertainment single point of reference.'
-          lastReviewed='2021-05-26T05:59:02.085Z'
-          reviewedBy={{
-            type: 'Person',
-            name: 'Garmeeh'
-          }}
-        />
         <Head>
+          <script type='application/ld+json' key='global-json-ld' dangerouslySetInnerHTML={this.jsonSchema()} />
           <Script
             id='google-tag-manager-script'
             strategy='lazyOnload'
