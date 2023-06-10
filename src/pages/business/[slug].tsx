@@ -31,7 +31,7 @@ import React from 'react';
 import GlobalPageWrapper from '@/components/templates/global.template';
 import customTheme from '@/config/mui.theme';
 import { BusinessDTO } from '@/utils/interfaces';
-import { BreadcrumbJsonLd, LocalBusinessJsonLd, NextSeo } from 'next-seo';
+import { NextSeo } from 'next-seo';
 
 export async function getStaticProps({ params }) {
   // @ts-ignore-next-line eslint-ignore-next-line
@@ -98,60 +98,6 @@ export default class BusinessSinglePage extends React.Component<PageProps> {
           canonical={`https://veterandb.com/business/${this.props.business.slug}`}
           openGraph={{ url: `https://veterandb.com/business/${this.props.business.slug}` }}
         />
-        <BreadcrumbJsonLd
-          itemListElements={[
-            {
-              position: 1,
-              name: 'Home',
-              item: 'https://veterandb.com/'
-            },
-            {
-              position: 2,
-              name: 'Business',
-              item: 'https://veterandb.com/business/'
-            },
-            {
-              position: 3,
-              name: `${this.props.business.name}`,
-              item: `https://veterandb.com/business/${this.props.business.slug}`
-            }
-          ]}
-        />
-        {(() => {
-          if (this.props.business.address !== null && this.props.business.websiteURL !== null) {
-            return (
-              <LocalBusinessJsonLd
-                id={`https://veterandb.com/business/${this.props.business.slug}`}
-                type='LocalBusiness'
-                name={`${this.props.business.name}`}
-                description={`${this.props.business.description}`}
-                url={`https://veterandb.com/business/${this.props.business.slug}`}
-                telephone={`${this.props.business.phone}`}
-                address={{
-                  streetAddress: `${this.props.business.address.line1}`,
-                  addressLocality: `${this.props.business.address.city}`,
-                  addressRegion: `${this.props.business.address.state}`,
-                  postalCode: `${this.props.business.address.zip}`,
-                  addressCountry: 'US'
-                }}
-                images={[
-                  `https://uploads.veterandb.com/military/${this.props.business.coverImage}`,
-                  `https://uploads.veterandb.com/military/${this.props.business.logo}`
-                ]}
-                sameAs={[`${this.props.business.websiteURL}`]}
-                openingHours={[
-                  {
-                    opens: '00:00',
-                    closes: '23:59',
-                    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-                    validFrom: '2019-01-01',
-                    validThrough: '2050-12-31'
-                  }
-                ]}
-              />
-            );
-          }
-        })()}
         <Box
           component={'main'}
           className='single-page'
