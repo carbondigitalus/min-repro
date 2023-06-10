@@ -1,0 +1,109 @@
+// ==========================================================================
+// Nav
+// ==========================================================================
+
+header {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  &-top-bar {
+    color: $sandLight;
+    font-size: 1.2rem;
+    p {
+      margin-bottom: 0;
+    }
+    @include mediaQuery(l) {
+      display: none;
+    }
+  }
+  &-nav {
+    color: $greenDarkest;
+    li {
+      font-size: em(8px);
+      align-items: center;
+    }
+  }
+  &-nav-top-bar ul.MuiList-root {
+    @include mediaQuery(l) {
+      position: absolute !important;
+    }
+  }
+}
+
+.logo-link {
+  display: inline-block;
+  max-width: 250px;
+}
+
+.menu-list {
+  @include mediaQuery(l) {
+    display: none !important;
+  }
+}
+
+.mobile-nav {
+  &-icon {
+    background-color: $sandLight;
+    display: none;
+    @include mediaQuery(l) {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+    button {
+      background-color: $sandLight;
+      border: none;
+      height: 50px;
+      width: 50px;
+      svg {
+        color: $greenDarkest;
+        height: 100%;
+        width: 100%;
+      }
+    }
+    &-close {
+      display: block;
+      margin-left: auto;
+      width: 40px;
+      &-wrapper {
+        top: 20px;
+        right: 20px;
+        position: absolute;
+      }
+    }
+  }
+  &-wrapper {
+    background-color: $greenDarkest;
+    color: $sandLight;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      left: 50%;
+      text-align: center;
+      transform: translateX(-50%);
+      width: 50%;
+      li {
+        font-size: 1.25rem;
+      }
+      a {
+        width: 100%;
+      }
+    }
+  }
+  &-divider {
+    background-color: $sandLight;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+}

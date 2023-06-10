@@ -1,0 +1,56 @@
+.basic-page {
+  .content-2col {
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    width: 50%;
+    @include mediaQuery(xl) {
+      width: 80%;
+    }
+    @include mediaQuery(s) {
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+    }
+    h1 {
+      font-size: em(40px);
+      font-weight: 700;
+      @include mediaQuery(s) {
+        font-size: em(24px);
+      }
+    }
+    p {
+      color: $greenDarkest;
+      padding: 1em;
+    }
+  }
+  .image-col-left,
+  .text-col-right {
+    height: auto;
+    margin-top: 20%;
+    padding: 25px;
+    @include mediaQuery(s) {
+      margin-left: auto;
+      margin-right: auto;
+      min-width: 80%;
+      text-align: left;
+    }
+    @include mediaQuery(xs) {
+      min-width: 100%;
+    }
+  }
+  .image-col-left {
+    @include mediaQuery(xl) {
+      margin-top: 0;
+    }
+  }
+  .text-col-right {
+    @include mediaQuery(xl) {
+      margin-top: 10%;
+    }
+    @include mediaQuery(m) {
+      margin-top: 0;
+    }
+  }
+}

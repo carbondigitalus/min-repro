@@ -1,0 +1,177 @@
+section.home-hero {
+  background-image: url('#{$path-image-static}/guy-on-cliff.png');
+  background-position: 50% 25%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 80vh;
+  padding-top: 50px;
+  @include mediaQuery(l) {
+    background-size: auto;
+  }
+  @include mediaQuery(s) {
+    min-height: unset;
+  }
+  @include mediaQuery(xs) {
+    background-image: unset;
+    background-color: $sandLight;
+    border-top: solid 1px $greenDarkest;
+  }
+  .content-2col {
+    margin-left: 15% !important;
+    margin-right: auto !important;
+    padding-bottom: 100px !important;
+    padding-top: 100px !important;
+    width: 50% !important;
+    @include mediaQuery(l) {
+      margin-left: 0 !important;
+      width: 80% !important;
+    }
+    @include mediaQuery(m) {
+      width: 100% !important;
+    }
+    @include mediaQuery(s) {
+      padding-top: 0;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    h1 {
+      font-size: em(40px);
+      font-weight: 700;
+    }
+    p {
+      color: $greenDarkest;
+      padding: 1em;
+      padding-left: 0;
+    }
+  }
+  .image-col-left,
+  .text-col-right {
+    padding: 25px;
+    width: 50%;
+  }
+  .text-col-right {
+    margin-top: 10%;
+    @include mediaQuery(m) {
+      margin-top: 0 !important;
+    }
+    @include mediaQuery(xs) {
+      margin-right: 0;
+      min-width: 100%;
+    }
+  }
+}
+
+section.home-stats {
+  background-color: $greenDarkest;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  @include mediaQuery(l) {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  h2,
+  h3,
+  p {
+    color: $sandLight;
+  }
+  h2 {
+    font-size: 2.5em;
+    font-weight: 700;
+    margin: 0;
+  }
+  h3 {
+    font-size: 1.5em;
+    font-weight: 700;
+    margin: 0;
+    text-align: center;
+  }
+  p {
+    font-size: 4em;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  .content-2col {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 50% !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    @include mediaQuery(l) {
+      width: 80% !important;
+    }
+    @include mediaQuery(m) {
+      width: 100% !important;
+    }
+    @include mediaQuery(s) {
+      padding-top: 0;
+    }
+    p {
+      color: $sandLight;
+      padding: 0.5em;
+    }
+  }
+  .home-stats-card {
+    margin-top: 0;
+    margin-bottom: 20px;
+    @include mediaQuery(s) {
+      flex-basis: unset;
+      max-width: unset !important;
+      width: 50%;
+    }
+    @include mediaQuery(xs) {
+      width: 100%;
+    }
+  }
+}
+
+section.home-vet-tribe {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  h2,
+  h3,
+  h4,
+  p {
+    color: $greenDarkest;
+  }
+  h2 {
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 50px;
+  }
+  h3 {
+    font-size: 2em;
+    font-weight: 700;
+    margin-top: 50px;
+    text-align: center;
+  }
+  h4 {
+    font-size: 1.25em;
+    font-weight: 500;
+    margin-top: 20px;
+    text-align: center;
+  }
+  p {
+    font-size: 1.25em;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+  }
+  a {
+    text-decoration: none;
+  }
+  .home-tribe-card-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    margin-top: 0;
+  }
+  .home-tribe-card {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    width: calc(33% - 20px);
+  }
+}

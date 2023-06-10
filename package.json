@@ -1,0 +1,42 @@
+{
+  "name": "veterandb-public",
+  "version": "0.7.0",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "lint": "next lint",
+    "postbuild": "next-sitemap --config sitemap.config.js",
+    "start:dev": "next dev",
+    "start:prod": "next start"
+  },
+  "devDependencies": {
+    "@types/node": "18.15.11",
+    "@types/react": "18.0.35",
+    "@types/react-dom": "18.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.59.0",
+    "@typescript-eslint/parser": "^5.59.0",
+    "eslint": "8.38.0",
+    "eslint-config-next": "13.3.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.7",
+    "sass": "^1.62.0",
+    "typescript": "5.0.4"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@fortawesome/free-brands-svg-icons": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@mui/icons-material": "^5.11.16",
+    "@mui/material": "^5.12.1",
+    "axios": "^1.3.5",
+    "class-validator": "^0.14.0",
+    "next": "13.3.0",
+    "next-seo": "^6.0.0",
+    "next-sitemap": "^4.0.7",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  }
+}
