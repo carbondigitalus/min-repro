@@ -1,19 +1,16 @@
 // NPM Modules
-import {
-  faFacebook,
-  faInstagram,
-  faLinkedin,
-  faMedium,
-  faReddit,
-  faTwitter,
-  faYoutube
-} from '@fortawesome/free-brands-svg-icons';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+// import LinkedInIcon from '@mui/icons-material/LinkedIn';
+// import PodcastsIcon from '@mui/icons-material/Podcasts';
+// import RedditIcon from '@mui/icons-material/Reddit';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import YouTubeIcon from '@mui/icons-material/YouTube';
 import { Box, Container, Grid, Link, MenuItem, MenuList, Typography } from '@mui/material';
 import React from 'react';
 // Custom Modules
 import customTheme from '@/config/mui.theme';
 import Image from 'next/image';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default class Footer extends React.Component {
   constructor(props) {
@@ -195,13 +192,20 @@ export default class Footer extends React.Component {
                   &nbsp;Project &middot; All Rights Reserved.
                 </Typography>
               </Grid>
-              <Grid item className='social-line' xs={12} sm={6} md={8} sx={{ textTransform: 'uppercase' }}>
+              <Grid
+                item
+                className='social-line'
+                xs={12}
+                sm={6}
+                md={8}
+                sx={{ textTransform: 'uppercase', fontSize: '2rem' }}
+              >
                 <MenuList
                   id='footer-social-list'
                   dense
                   sx={{ pt: 0, pb: 0, display: 'flex', justifyContent: 'flex-end' }}
                 >
-                  <MenuItem sx={{ fontWeight: '700', p: 1, fontSize: '1em' }}>
+                  <MenuItem sx={{ fontWeight: '700', p: 1 }}>
                     <Link
                       href='https://www.facebook.com/veterandb'
                       color='inherit'
@@ -209,10 +213,10 @@ export default class Footer extends React.Component {
                       target='_blank'
                       rel='noreferred'
                     >
-                      <FontAwesomeIcon icon={faFacebook} />
+                      <FacebookIcon />
                     </Link>
                   </MenuItem>
-                  <MenuItem sx={{ fontWeight: '700', p: 1, fontSize: '1em' }}>
+                  <MenuItem sx={{ fontWeight: '700', p: 1 }}>
                     <Link
                       href='https://www.instagram.com/veterandatabase/'
                       color='inherit'
@@ -220,43 +224,10 @@ export default class Footer extends React.Component {
                       target='_blank'
                       rel='noreferred'
                     >
-                      <FontAwesomeIcon icon={faInstagram} />
+                      <InstagramIcon />
                     </Link>
                   </MenuItem>
-                  <MenuItem sx={{ fontWeight: '700', p: 1, fontSize: '1em' }}>
-                    <Link
-                      href='https://www.linkedin.com/company/veterandb/'
-                      color='inherit'
-                      underline='hover'
-                      target='_blank'
-                      rel='noreferred'
-                    >
-                      <FontAwesomeIcon icon={faLinkedin} />
-                    </Link>
-                  </MenuItem>
-                  <MenuItem sx={{ fontWeight: '700', p: 1, fontSize: '1em' }}>
-                    <Link
-                      href='https://medium.com/@veterandb'
-                      color='inherit'
-                      underline='hover'
-                      target='_blank'
-                      rel='noreferred'
-                    >
-                      <FontAwesomeIcon icon={faMedium} />
-                    </Link>
-                  </MenuItem>
-                  <MenuItem sx={{ fontWeight: '700', p: 1, fontSize: '1em' }}>
-                    <Link
-                      href='https://www.reddit.com/r/VeteranDatabase/'
-                      color='inherit'
-                      underline='hover'
-                      target='_blank'
-                      rel='noreferred'
-                    >
-                      <FontAwesomeIcon icon={faReddit} />
-                    </Link>
-                  </MenuItem>
-                  <MenuItem sx={{ fontWeight: '700', p: 1, fontSize: '1em' }}>
+                  <MenuItem sx={{ fontWeight: '700', p: 1 }}>
                     <Link
                       href='https://twitter.com/VeteranDatabase'
                       color='inherit'
@@ -264,10 +235,10 @@ export default class Footer extends React.Component {
                       target='_blank'
                       rel='noreferred'
                     >
-                      <FontAwesomeIcon icon={faTwitter} />
+                      <TwitterIcon />
                     </Link>
                   </MenuItem>
-                  <MenuItem sx={{ fontWeight: '700', p: 1, fontSize: '1em' }}>
+                  <MenuItem sx={{ fontWeight: '700', p: 1 }}>
                     <Link
                       href='https://www.youtube.com/@VeteranDB'
                       color='inherit'
@@ -275,7 +246,7 @@ export default class Footer extends React.Component {
                       target='_blank'
                       rel='noreferred'
                     >
-                      <FontAwesomeIcon icon={faYoutube} />
+                      <YouTubeIcon />
                     </Link>
                   </MenuItem>
                 </MenuList>

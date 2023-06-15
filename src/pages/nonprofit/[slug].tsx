@@ -24,7 +24,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Box, Grid, MenuItem, MenuList, Typography } from '@mui/material';
 import axios, { AxiosResponse } from 'axios';
-import { BreadcrumbJsonLd, LocalBusinessJsonLd, NextSeo } from 'next-seo';
+import Head from 'next/head';
 import React from 'react';
 
 // Custom Modules
@@ -91,60 +91,10 @@ export default class NonProfitSinglePage extends React.Component<PageProps> {
   render() {
     return (
       <GlobalPageWrapper>
-        <NextSeo
-          title={`${this.props.nonprofit.name} | Veteran Database`}
-          description={`${this.props.nonprofit.description}`}
-          canonical={`https://veterandb.com/nonprofit/${this.props.nonprofit.slug}`}
-          openGraph={{ url: `https://veterandb.com/nonprofit/${this.props.nonprofit.slug}` }}
-        />
-        <BreadcrumbJsonLd
-          itemListElements={[
-            {
-              position: 1,
-              name: 'Home',
-              item: 'https://veterandb.com/'
-            },
-            {
-              position: 2,
-              name: 'NonProfit',
-              item: 'https://veterandb.com/nonprofit/'
-            },
-            {
-              position: 3,
-              name: `${this.props.nonprofit.name}`,
-              item: `https://veterandb.com/nonprofit/${this.props.nonprofit.slug}`
-            }
-          ]}
-        />
-        <LocalBusinessJsonLd
-          id={`https://veterandb.com/nonprofit/${this.props.nonprofit.slug}`}
-          type='LocalBusiness'
-          name={`${this.props.nonprofit.name}`}
-          description={`${this.props.nonprofit.description}`}
-          url={`https://veterandb.com/nonprofit/${this.props.nonprofit.slug}`}
-          telephone={`${this.props.nonprofit.phone}`}
-          address={{
-            streetAddress: `${this.props.nonprofit.address.line1}`,
-            addressLocality: `${this.props.nonprofit.address.city}`,
-            addressRegion: `${this.props.nonprofit.address.state}`,
-            postalCode: `${this.props.nonprofit.address.zip}`,
-            addressCountry: 'US'
-          }}
-          images={[
-            `https://uploads.veterandb.com/military/${this.props.nonprofit.coverImage}`,
-            `https://uploads.veterandb.com/military/${this.props.nonprofit.logo}`
-          ]}
-          sameAs={[`${this.props.nonprofit.websiteURL}`]}
-          openingHours={[
-            {
-              opens: '00:00',
-              closes: '23:59',
-              dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-              validFrom: '2019-01-01',
-              validThrough: '2050-12-31'
-            }
-          ]}
-        />
+        <Head>
+          <title>{`${this.props.nonprofit.name} | Veteran Database`}</title>
+          <meta name='description' content={`${this.props.nonprofit.description}`} />
+        </Head>
         <Box
           component={'main'}
           className='single-page'

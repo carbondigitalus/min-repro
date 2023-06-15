@@ -24,7 +24,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Box, Grid, MenuItem, MenuList, Typography } from '@mui/material';
 import axios, { AxiosResponse } from 'axios';
-import { NextSeo } from 'next-seo';
+import Head from 'next/head';
 import React from 'react';
 
 // Custom Modules
@@ -91,12 +91,10 @@ export default class DirectorySinglePage extends React.Component<PageProps> {
   render() {
     return (
       <GlobalPageWrapper>
-        <NextSeo
-          title={`${this.props.directory.name} | Veteran Database`}
-          description={`${this.props.directory.description}`}
-          canonical={`https://veterandb.com/directory/${this.props.directory.slug}`}
-          openGraph={{ url: `https://veterandb.com/directory/${this.props.directory.slug}` }}
-        />
+        <Head>
+          <title>{`${this.props.directory.name} | Veteran Database`}</title>
+          <meta name='description' content={`${this.props.directory.description}`} />
+        </Head>
         <Box
           component={'main'}
           className='single-page'
