@@ -92,14 +92,12 @@ export default class BusinessSinglePage extends React.Component<PageProps> {
   render() {
     return (
       <GlobalPageWrapper>
-        <Head>
-          <NextSeo
-            title={`${this.props.business.name} | Veteran Database`}
-            description={`${this.props.business.description}`}
-            canonical={`https://veterandb.com/business/${this.props.business.slug}`}
-            openGraph={{ url: `https://veterandb.com/business/${this.props.business.slug}` }}
-          />
-        </Head>
+        <NextSeo
+          title={`${this.props.business.name} | Veteran Database`}
+          description={`${this.props.business.description}`}
+          canonical={`https://veterandb.com/business/${this.props.business.slug}`}
+          openGraph={{ url: `https://veterandb.com/business/${this.props.business.slug}` }}
+        />
         <Box
           component={'main'}
           className='single-page'
