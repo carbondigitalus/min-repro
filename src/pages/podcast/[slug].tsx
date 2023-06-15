@@ -24,7 +24,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Box, Grid, MenuItem, MenuList, Typography } from '@mui/material';
 import axios, { AxiosResponse } from 'axios';
-import { BreadcrumbJsonLd, LocalBusinessJsonLd, NextSeo } from 'next-seo';
+import { NextSeo } from 'next-seo';
 import React from 'react';
 
 // Custom Modules
@@ -96,54 +96,6 @@ export default class PodcastSinglePage extends React.Component<PageProps> {
           description={`${this.props.podcast.description}`}
           canonical={`https://veterandb.com/podcast/${this.props.podcast.slug}`}
           openGraph={{ url: `https://veterandb.com/podcast/${this.props.podcast.slug}` }}
-        />
-        <BreadcrumbJsonLd
-          itemListElements={[
-            {
-              position: 1,
-              name: 'Home',
-              item: 'https://veterandb.com/'
-            },
-            {
-              position: 2,
-              name: 'Podcast',
-              item: 'https://veterandb.com/podcast/'
-            },
-            {
-              position: 3,
-              name: `${this.props.podcast.name}`,
-              item: `https://veterandb.com/podcast/${this.props.podcast.slug}`
-            }
-          ]}
-        />
-        <LocalBusinessJsonLd
-          id={`https://veterandb.com/podcast/${this.props.podcast.slug}`}
-          type='LocalBusiness'
-          name={`${this.props.podcast.name}`}
-          description={`${this.props.podcast.description}`}
-          url={`https://veterandb.com/nonprofit/${this.props.podcast.slug}`}
-          telephone={`${this.props.podcast.phone}`}
-          address={{
-            streetAddress: `${this.props.podcast.address.line1}`,
-            addressLocality: `${this.props.podcast.address.city}`,
-            addressRegion: `${this.props.podcast.address.state}`,
-            postalCode: `${this.props.podcast.address.zip}`,
-            addressCountry: 'US'
-          }}
-          images={[
-            `https://uploads.veterandb.com/military/${this.props.podcast.coverImage}`,
-            `https://uploads.veterandb.com/military/${this.props.podcast.logo}`
-          ]}
-          sameAs={[`${this.props.podcast.websiteURL}`]}
-          openingHours={[
-            {
-              opens: '00:00',
-              closes: '23:59',
-              dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-              validFrom: '2019-01-01',
-              validThrough: '2050-12-31'
-            }
-          ]}
         />
         <Box
           component={'main'}
