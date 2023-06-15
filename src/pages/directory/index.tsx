@@ -1,7 +1,7 @@
 // NPM Modules
 import { Box, Grid, Link, Typography } from '@mui/material';
 import axios, { AxiosResponse } from 'axios';
-import { BreadcrumbJsonLd, NextSeo } from 'next-seo';
+import { NextSeo } from 'next-seo';
 import React from 'react';
 
 // Custom Modules
@@ -48,20 +48,6 @@ export default class DirectoryArchivePage extends React.Component<PageProps> {
           title='Directory Listings | Veteran Database'
           canonical='https://veterandb.com/directory/'
           openGraph={{ url: 'https://veterandb.com/directory/' }}
-        />
-        <BreadcrumbJsonLd
-          itemListElements={[
-            {
-              position: 1,
-              name: 'Home',
-              item: 'https://veterandb.com/'
-            },
-            {
-              position: 2,
-              name: 'Directory',
-              item: 'https://veterandb.com/directory/'
-            }
-          ]}
         />
         <Box
           component={'main'}

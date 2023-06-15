@@ -1,7 +1,7 @@
 // NPM Modules
 import { Box, Grid, Link, Typography } from '@mui/material';
 import axios, { AxiosResponse } from 'axios';
-import { BreadcrumbJsonLd, NextSeo } from 'next-seo';
+import { NextSeo } from 'next-seo';
 import React from 'react';
 
 // Custom Modules
@@ -48,20 +48,6 @@ export default class NonProfitArchivePage extends React.Component<PageProps> {
           title='NonProfit Listings | Veteran Database'
           canonical='https://veterandb.com/nonprofit/'
           openGraph={{ url: 'https://veterandb.com/nonprofit/' }}
-        />
-        <BreadcrumbJsonLd
-          itemListElements={[
-            {
-              position: 1,
-              name: 'Home',
-              item: 'https://veterandb.com/'
-            },
-            {
-              position: 2,
-              name: 'NonProfit',
-              item: 'https://veterandb.com/nonprofit/'
-            }
-          ]}
         />
         <Box
           component={'main'}
