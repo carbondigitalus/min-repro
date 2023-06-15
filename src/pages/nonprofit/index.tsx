@@ -1,7 +1,7 @@
 // NPM Modules
 import { Box, Grid, Link, Typography } from '@mui/material';
 import axios, { AxiosResponse } from 'axios';
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 import React from 'react';
 
 // Custom Modules
@@ -44,10 +44,11 @@ export default class NonProfitArchivePage extends React.Component<PageProps> {
   render() {
     return (
       <GlobalPageWrapper>
-        <Head>
-          <title>NonProfit | Veteran Database</title>
-          <meta name='description' content='Veteran Database @VeteranDB' />
-        </Head>
+        <NextSeo
+          title='NonProfit Listings | Veteran Database'
+          canonical='https://veterandb.com/nonprofit/'
+          openGraph={{ url: 'https://veterandb.com/nonprofit/' }}
+        />
         <Box
           component={'main'}
           className='archive-page'

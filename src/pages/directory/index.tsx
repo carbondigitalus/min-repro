@@ -1,7 +1,7 @@
 // NPM Modules
 import { Box, Grid, Link, Typography } from '@mui/material';
 import axios, { AxiosResponse } from 'axios';
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 import React from 'react';
 
 // Custom Modules
@@ -44,10 +44,11 @@ export default class DirectoryArchivePage extends React.Component<PageProps> {
   render() {
     return (
       <GlobalPageWrapper>
-        <Head>
-          <title>Directory | Veteran Database</title>
-          <meta name='description' content='Veteran Database @VeteranDB' />
-        </Head>
+        <NextSeo
+          title='Directory Listings | Veteran Database'
+          canonical='https://veterandb.com/directory/'
+          openGraph={{ url: 'https://veterandb.com/directory/' }}
+        />
         <Box
           component={'main'}
           className='archive-page'

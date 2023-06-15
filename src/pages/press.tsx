@@ -1,7 +1,7 @@
 // NPM Modules
 import { Box, Grid, Link, Typography } from '@mui/material';
 import React from 'react';
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 
 // Custom Modules
 import GlobalPageWrapper from '@/components/templates/global.template';
@@ -11,10 +11,11 @@ export default class PressPage extends React.Component {
   render() {
     return (
       <GlobalPageWrapper>
-        <Head>
-          <title>Press | Veteran Database</title>
-          <meta name='description' content='Veteran Database @VeteranDB' />
-        </Head>
+        <NextSeo
+          title='Press | Veteran Database'
+          canonical='https://veterandb.com/press/'
+          openGraph={{ url: 'https://veterandb.com/press/' }}
+        />
         <Box
           component={'main'}
           className='basic-page'

@@ -1,7 +1,7 @@
 // NPM Modules
 import { Box, Grid, Link, Typography } from '@mui/material';
 import axios, { AxiosResponse } from 'axios';
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 import React from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 
@@ -145,10 +145,7 @@ export default class HomePage extends React.Component<PageProps> {
   render() {
     return (
       <GlobalPageWrapper>
-        <Head>
-          <title>The Last LZ | Veteran Database</title>
-          <meta name='description' content='Veteran Database @VeteranDB' />
-        </Head>
+        <NextSeo title='The Last LZ | Veteran Database' canonical='https://veterandb.com/' />
         <Box component={'main'} sx={{ backgroundImage: customTheme.palette.secondary.main, width: '100%' }}>
           <section className='home-hero'>
             <Grid container className='content-2col' spacing={2} sx={{ p: 5 }}>

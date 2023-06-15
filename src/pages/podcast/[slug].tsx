@@ -24,7 +24,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Box, Grid, MenuItem, MenuList, Typography } from '@mui/material';
 import axios, { AxiosResponse } from 'axios';
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 import React from 'react';
 
 // Custom Modules
@@ -91,10 +91,12 @@ export default class PodcastSinglePage extends React.Component<PageProps> {
   render() {
     return (
       <GlobalPageWrapper>
-        <Head>
-          <title>{`${this.props.podcast.name} | Veteran Database`}</title>
-          <meta name='description' content={`${this.props.podcast.description}`} />
-        </Head>
+        <NextSeo
+          title={`${this.props.podcast.name} | Veteran Database`}
+          description={`${this.props.podcast.description}`}
+          canonical={`https://veterandb.com/podcast/${this.props.podcast.slug}`}
+          openGraph={{ url: `https://veterandb.com/podcast/${this.props.podcast.slug}` }}
+        />
         <Box
           component={'main'}
           className='single-page'
