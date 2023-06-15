@@ -24,7 +24,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Box, Grid, MenuItem, MenuList, Typography } from '@mui/material';
 import axios, { AxiosResponse } from 'axios';
-import { BreadcrumbJsonLd, LocalBusinessJsonLd, NextSeo } from 'next-seo';
+import { NextSeo } from 'next-seo';
 import React from 'react';
 
 // Custom Modules
@@ -97,60 +97,6 @@ export default class DirectorySinglePage extends React.Component<PageProps> {
           canonical={`https://veterandb.com/directory/${this.props.directory.slug}`}
           openGraph={{ url: `https://veterandb.com/directory/${this.props.directory.slug}` }}
         />
-        <BreadcrumbJsonLd
-          itemListElements={[
-            {
-              position: 1,
-              name: 'Home',
-              item: 'https://veterandb.com/'
-            },
-            {
-              position: 2,
-              name: 'Directory',
-              item: 'https://veterandb.com/directory/'
-            },
-            {
-              position: 3,
-              name: `${this.props.directory.name}`,
-              item: `https://veterandb.com/directory/${this.props.directory.slug}`
-            }
-          ]}
-        />
-        {(() => {
-          if (this.props.directory.address !== null && this.props.directory.websiteURL !== null) {
-            return (
-              <LocalBusinessJsonLd
-                id={`https://veterandb.com/directory/${this.props.directory.slug}`}
-                type='LocalBusiness'
-                name={`${this.props.directory.name}`}
-                description={`${this.props.directory.description}`}
-                url={`https://veterandb.com/directory/${this.props.directory.slug}`}
-                telephone={`${this.props.directory.phone}`}
-                address={{
-                  streetAddress: `${this.props.directory.address.line1}`,
-                  addressLocality: `${this.props.directory.address.city}`,
-                  addressRegion: `${this.props.directory.address.state}`,
-                  postalCode: `${this.props.directory.address.zip}`,
-                  addressCountry: 'US'
-                }}
-                images={[
-                  `https://uploads.veterandb.com/military/${this.props.directory.coverImage}`,
-                  `https://uploads.veterandb.com/military/${this.props.directory.logo}`
-                ]}
-                sameAs={[`${this.props.directory.websiteURL}`]}
-                openingHours={[
-                  {
-                    opens: '00:00',
-                    closes: '23:59',
-                    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-                    validFrom: '2019-01-01',
-                    validThrough: '2050-12-31'
-                  }
-                ]}
-              />
-            );
-          }
-        })()}
         <Box
           component={'main'}
           className='single-page'

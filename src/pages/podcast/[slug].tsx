@@ -116,41 +116,35 @@ export default class PodcastSinglePage extends React.Component<PageProps> {
             }
           ]}
         />
-        {(() => {
-          if (this.props.podcast.address !== null && this.props.podcast.websiteURL !== null) {
-            return (
-              <LocalBusinessJsonLd
-                id={`https://veterandb.com/podcast/${this.props.podcast.slug}`}
-                type='LocalBusiness'
-                name={`${this.props.podcast.name}`}
-                description={`${this.props.podcast.description}`}
-                url={`https://veterandb.com/nonprofit/${this.props.podcast.slug}`}
-                telephone={`${this.props.podcast.phone}`}
-                address={{
-                  streetAddress: `${this.props.podcast.address.line1}`,
-                  addressLocality: `${this.props.podcast.address.city}`,
-                  addressRegion: `${this.props.podcast.address.state}`,
-                  postalCode: `${this.props.podcast.address.zip}`,
-                  addressCountry: 'US'
-                }}
-                images={[
-                  `https://uploads.veterandb.com/military/${this.props.podcast.coverImage}`,
-                  `https://uploads.veterandb.com/military/${this.props.podcast.logo}`
-                ]}
-                sameAs={[`${this.props.podcast.websiteURL}`]}
-                openingHours={[
-                  {
-                    opens: '00:00',
-                    closes: '23:59',
-                    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-                    validFrom: '2019-01-01',
-                    validThrough: '2050-12-31'
-                  }
-                ]}
-              />
-            );
-          }
-        })()}
+        <LocalBusinessJsonLd
+          id={`https://veterandb.com/podcast/${this.props.podcast.slug}`}
+          type='LocalBusiness'
+          name={`${this.props.podcast.name}`}
+          description={`${this.props.podcast.description}`}
+          url={`https://veterandb.com/nonprofit/${this.props.podcast.slug}`}
+          telephone={`${this.props.podcast.phone}`}
+          address={{
+            streetAddress: `${this.props.podcast.address.line1}`,
+            addressLocality: `${this.props.podcast.address.city}`,
+            addressRegion: `${this.props.podcast.address.state}`,
+            postalCode: `${this.props.podcast.address.zip}`,
+            addressCountry: 'US'
+          }}
+          images={[
+            `https://uploads.veterandb.com/military/${this.props.podcast.coverImage}`,
+            `https://uploads.veterandb.com/military/${this.props.podcast.logo}`
+          ]}
+          sameAs={[`${this.props.podcast.websiteURL}`]}
+          openingHours={[
+            {
+              opens: '00:00',
+              closes: '23:59',
+              dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+              validFrom: '2019-01-01',
+              validThrough: '2050-12-31'
+            }
+          ]}
+        />
         <Box
           component={'main'}
           className='single-page'
