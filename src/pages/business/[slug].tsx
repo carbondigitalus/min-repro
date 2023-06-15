@@ -31,7 +31,6 @@ import React from 'react';
 import GlobalPageWrapper from '@/components/templates/global.template';
 import customTheme from '@/config/mui.theme';
 import { BusinessDTO } from '@/utils/interfaces';
-import { NextSeo } from 'next-seo';
 
 export async function getStaticProps({ params }) {
   // @ts-ignore-next-line eslint-ignore-next-line
@@ -92,12 +91,10 @@ export default class BusinessSinglePage extends React.Component<PageProps> {
   render() {
     return (
       <GlobalPageWrapper>
-        <NextSeo
-          title={`${this.props.business.name} | Veteran Database`}
-          description={`${this.props.business.description}`}
-          canonical={`https://veterandb.com/business/${this.props.business.slug}`}
-          openGraph={{ url: `https://veterandb.com/business/${this.props.business.slug}` }}
-        />
+        <Head>
+          <title>{`${this.props.business.name} | Veteran Database`}</title>
+          <meta name='description' content={`${this.props.business.description}`} />
+        </Head>
         <Box
           component={'main'}
           className='single-page'

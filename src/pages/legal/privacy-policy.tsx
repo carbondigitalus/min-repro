@@ -1,7 +1,7 @@
 // NPM Modules
 import { Box, Grid, Typography } from '@mui/material';
 import React from 'react';
-import { NextSeo } from 'next-seo';
+import Head from 'next/head';
 
 // Custom Modules
 import GlobalPageWrapper from '@/components/templates/global.template';
@@ -11,11 +11,10 @@ export default class LegalPrivacyPolicyPage extends React.Component {
   render() {
     return (
       <GlobalPageWrapper>
-        <NextSeo
-          title='Privacy Policy | Veteran Database'
-          canonical='https://veterandb.com/legal/privacy-policy'
-          openGraph={{ url: 'https://veterandb.com/legal/privacy-policy' }}
-        />
+        <Head>
+          <title>Privacy Policy | Veteran Database</title>
+          <meta name='description' content='Veteran Database @VeteranDB' />
+        </Head>
         <Box
           component={'main'}
           className='legal-page'

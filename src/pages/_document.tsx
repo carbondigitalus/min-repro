@@ -7,6 +7,8 @@ import Script from 'next/script';
 // Custom Modules
 import customTheme from '@/config/mui.theme';
 
+// Custom Modules
+
 export default class Document extends React.Component {
   private jsonSchema() {
     return {
